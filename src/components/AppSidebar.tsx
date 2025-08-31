@@ -46,10 +46,13 @@ export function AppSidebar() {
   const collapsed = state === "collapsed"
 
   return (
-    <Sidebar className={cn(
-      "border-l border-sidebar-border",
-      collapsed ? "w-16" : "w-72"
-    )}>
+    <Sidebar 
+      side="right"
+      className={cn(
+        "border-r border-sidebar-border",
+        collapsed ? "w-16" : "w-72"
+      )}
+    >
       <SidebarContent className="p-4">
         {/* Logo Section */}
         <div className="mb-8 px-2">

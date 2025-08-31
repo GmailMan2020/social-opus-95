@@ -182,8 +182,8 @@ export default function Missions() {
         </div>
         <Dialog open={showCreateDialog} onOpenChange={setShowCreateDialog}>
           <DialogTrigger asChild>
-            <Button className="professional-button">
-              <Plus className="w-4 h-4 ml-2" />
+            <Button className="professional-button gap-2">
+              <Plus className="w-4 h-4" />
               ماموریت جدید
             </Button>
           </DialogTrigger>
@@ -348,8 +348,9 @@ export default function Missions() {
                 <Button variant="outline" onClick={() => setShowCreateDialog(false)}>
                   انصراف
                 </Button>
-                <Button onClick={handleCreateMission}>
-                  ایجاد ماموریت
+                <Button onClick={handleCreateMission} className="gap-2">
+                  <Target className="w-4 h-4" />
+                  ایجاد و اجرا
                 </Button>
               </div>
             </div>

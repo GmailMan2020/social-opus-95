@@ -8,8 +8,6 @@ export function Layout() {
   return (
     <SidebarProvider defaultOpen={true}>
       <div className="min-h-screen flex w-full bg-gradient-hero">
-        <AppSidebar />
-        
         <div className="flex-1 flex flex-col">
           {/* Header */}
           <header className="h-16 border-b border-border bg-card/50 backdrop-blur-sm flex items-center justify-between px-6">
@@ -37,6 +35,8 @@ export function Layout() {
             <Outlet />
           </main>
         </div>
+        
+        <AppSidebar />
       </div>
     </SidebarProvider>
   )
