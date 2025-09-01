@@ -49,7 +49,7 @@ export function AppSidebar() {
     <Sidebar 
       side="right"
       className={cn(
-        "border-r border-sidebar-border",
+        "border-l border-sidebar-border transition-all duration-300 ease-in-out",
         collapsed ? "w-16" : "w-72"
       )}
     >
@@ -83,7 +83,7 @@ export function AppSidebar() {
               {navigationItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild className="h-12">
-                    <NavLink 
+                     <NavLink 
                       to={item.url} 
                       end
                       className={({ isActive }) => cn(
@@ -96,6 +96,9 @@ export function AppSidebar() {
                     >
                       <item.icon className={cn("w-5 h-5", collapsed && "mx-auto")} />
                       {!collapsed && <span className="font-medium">{item.title}</span>}
+                      {collapsed && (
+                        <span className="sr-only">{item.title}</span>
+                      )}
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
