@@ -26,7 +26,7 @@ export function Layout() {
 
   return (
     <SidebarProvider defaultOpen={true}>
-      <div className="min-h-screen flex w-full bg-gradient-hero">
+      <div className="min-h-screen flex w-full bg-gradient-hero" dir="rtl">
         <div className="flex-1 flex flex-col transition-all duration-300 ease-in-out">
           {/* Header */}
           <header className="h-16 border-b border-border bg-card/50 backdrop-blur-sm flex items-center justify-between px-6">

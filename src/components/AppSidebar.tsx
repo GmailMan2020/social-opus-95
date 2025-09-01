@@ -48,8 +48,10 @@ export function AppSidebar() {
   return (
     <Sidebar 
       side="right"
+      variant="sidebar"
+      collapsible="offcanvas"
       className={cn(
-        "border-l border-sidebar-border transition-all duration-300 ease-in-out",
+        "border-l border-sidebar-border bg-sidebar transition-all duration-300 ease-in-out",
         collapsed ? "w-16" : "w-72"
       )}
     >
@@ -83,19 +85,24 @@ export function AppSidebar() {
               {navigationItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild className="h-12">
-                     <NavLink 
+                    <NavLink 
                       to={item.url} 
                       end
                       className={({ isActive }) => cn(
                         "flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-200",
                         "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                        "text-sidebar-foreground", // Always show text
                         isActive 
                           ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-glow" 
-                          : "text-sidebar-foreground"
+                          : ""
                       )}
                     >
-                      <item.icon className={cn("w-5 h-5", collapsed && "mx-auto")} />
-                      {!collapsed && <span className="font-medium">{item.title}</span>}
+                      <item.icon className={cn("w-5 h-5 flex-shrink-0", collapsed && "mx-auto")} />
+                      {!collapsed && (
+                        <span className="font-medium opacity-100 transition-opacity duration-200">
+                          {item.title}
+                        </span>
+                      )}
                       {collapsed && (
                         <span className="sr-only">{item.title}</span>
                       )}
