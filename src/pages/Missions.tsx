@@ -5,8 +5,8 @@ import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
-import { 
-  Target, 
+import {
+  Target,
   Play,
   Pause,
   Settings,
@@ -194,7 +194,7 @@ export default function Missions() {
                 ماموریت خودکار برای تعامل با حساب‌های هدف تعریف کنید
               </DialogDescription>
             </DialogHeader>
-            
+
             <div className="space-y-6">
               {/* Platform Selection */}
               <div className="space-y-2">
@@ -317,7 +317,9 @@ export default function Missions() {
                 <Label>تنظیمات پیشرفته</Label>
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <Label htmlFor="random-delay">تاخیر تصادفی</Label>
+                    <div>
+                      <Label htmlFor="random-delay">تاخیر تصادفی</Label>
+                    </div>
                     <Switch
                       id="random-delay"
                       checked={settings.randomDelay}
@@ -374,13 +376,13 @@ export default function Missions() {
               const badge = getStatusBadge(mission.status)
               const StatusIcon = badge.icon
               const progressPercentage = (mission.completed / mission.dailyLimit) * 100
-              
+
               return (
                 <div key={mission.id} className="flex items-start gap-4 p-4 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors">
                   <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                     <PlatformIcon className="w-6 h-6 text-primary" />
                   </div>
-                  
+
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3 mb-2">
                       <h3 className="font-medium text-foreground">{mission.name}</h3>
@@ -389,7 +391,7 @@ export default function Missions() {
                         {badge.text}
                       </Badge>
                     </div>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
                       <div>
                         <p className="text-sm text-muted-foreground mb-1">حساب‌های هدف:</p>
@@ -400,7 +402,7 @@ export default function Missions() {
                         <p className="text-sm font-medium">{mission.sourceAccounts.join(", ")}</p>
                       </div>
                     </div>
-                    
+
                     <div className="flex items-center gap-6 text-sm text-muted-foreground mb-3">
                       <span className="flex items-center gap-1">
                         <TypeIcon className="w-4 h-4" />
@@ -415,15 +417,15 @@ export default function Missions() {
                         پیشرفت: {mission.completed}/{mission.dailyLimit}
                       </span>
                     </div>
-                    
+
                     {/* Progress Bar */}
                     <div className="w-full bg-muted rounded-full h-2 mb-3">
-                      <div 
-                        className="bg-primary h-2 rounded-full transition-all" 
+                      <div
+                        className="bg-primary h-2 rounded-full transition-all"
                         style={{ width: `${progressPercentage}%` }}
                       ></div>
                     </div>
-                    
+
                     <div className="flex items-center gap-2">
                       {mission.settings.randomDelay && (
                         <Badge variant="outline" className="text-xs">تاخیر تصادفی</Badge>
@@ -433,7 +435,7 @@ export default function Missions() {
                       )}
                     </div>
                   </div>
-                  
+
                   <div className="flex gap-1">
                     <Button variant="ghost" size="icon">
                       {mission.status === "active" ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}

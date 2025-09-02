@@ -6,8 +6,8 @@ import { Switch } from "@/components/ui/switch"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
-import { 
-  Settings as SettingsIcon, 
+import {
+  Settings as SettingsIcon,
   User,
   Shield,
   Bell,
@@ -67,7 +67,7 @@ export default function Settings() {
   const [showCurrentPassword, setShowCurrentPassword] = useState(false)
   const [showNewPassword, setShowNewPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
-  
+
   const [userSettings, setUserSettings] = useState({
     name: "احمد محمدی",
     email: "ahmad@example.com",
@@ -160,7 +160,7 @@ export default function Settings() {
         </TabsList>
 
         {/* Profile Settings */}
-        <TabsContent value="profile">
+        <TabsContent value="profile" dir="rtl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <Card className="professional-card">
               <CardHeader>
@@ -175,7 +175,7 @@ export default function Settings() {
                     onChange={(e) => setUserSettings({...userSettings, name: e.target.value})}
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="email">آدرس ایمیل</Label>
                   <Input
@@ -185,7 +185,7 @@ export default function Settings() {
                     onChange={(e) => setUserSettings({...userSettings, email: e.target.value})}
                   />
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="phone">شماره تلفن</Label>
                   <Input
@@ -194,7 +194,7 @@ export default function Settings() {
                     onChange={(e) => setUserSettings({...userSettings, phone: e.target.value})}
                   />
                 </div>
-                
+
                 <Button onClick={handleSaveProfile} className="w-full">
                   <Save className="w-4 h-4 ml-2" />
                   ذخیره تغییرات
@@ -227,7 +227,7 @@ export default function Settings() {
                     </Button>
                   </div>
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="new-password">رمز عبور جدید</Label>
                   <div className="relative">
@@ -248,7 +248,7 @@ export default function Settings() {
                     </Button>
                   </div>
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label htmlFor="confirm-password">تکرار رمز عبور جدید</Label>
                   <div className="relative">
@@ -269,7 +269,7 @@ export default function Settings() {
                     </Button>
                   </div>
                 </div>
-                
+
                 <Button onClick={handleChangePassword} className="w-full">
                   <Lock className="w-4 h-4 ml-2" />
                   تغییر رمز عبور
@@ -280,7 +280,7 @@ export default function Settings() {
         </TabsContent>
 
         {/* General Settings */}
-        <TabsContent value="general">
+        <TabsContent value="general" dir="rtl">
           <Card className="professional-card">
             <CardHeader>
               <CardTitle className="text-lg font-semibold">تنظیمات عمومی</CardTitle>
@@ -297,9 +297,9 @@ export default function Settings() {
                   onCheckedChange={(checked) => setGeneralSettings({...generalSettings, confirmBeforePublish: checked})}
                 />
               </div>
-              
+
               <Separator />
-              
+
               <div className="flex items-center justify-between">
                 <div>
                   <Label htmlFor="auto-hashtags">ذخیره خودکار هشتگ‌ها</Label>
@@ -311,9 +311,9 @@ export default function Settings() {
                   onCheckedChange={(checked) => setGeneralSettings({...generalSettings, autoSaveHashtags: checked})}
                 />
               </div>
-              
+
               <Separator />
-              
+
               <div className="flex items-center justify-between">
                 <div>
                   <Label htmlFor="auto-drafts">ذخیره خودکار پیش‌نویس‌ها</Label>
@@ -325,9 +325,9 @@ export default function Settings() {
                   onCheckedChange={(checked) => setGeneralSettings({...generalSettings, autoSaveDrafts: checked})}
                 />
               </div>
-              
+
               <Separator />
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>زبان رابط کاربری</Label>
@@ -341,7 +341,7 @@ export default function Settings() {
                     </SelectContent>
                   </Select>
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label>منطقه زمانی</Label>
                   <Select value={generalSettings.timezone} onValueChange={(value) => setGeneralSettings({...generalSettings, timezone: value})}>
@@ -355,7 +355,7 @@ export default function Settings() {
                   </Select>
                 </div>
               </div>
-              
+
               <Button onClick={handleSaveGeneralSettings}>
                 <Save className="w-4 h-4 ml-2" />
                 ذخیره تنظیمات عمومی
@@ -365,7 +365,7 @@ export default function Settings() {
         </TabsContent>
 
         {/* Notification Settings */}
-        <TabsContent value="notifications">
+        <TabsContent value="notifications" dir="rtl">
           <Card className="professional-card">
             <CardHeader>
               <CardTitle className="text-lg font-semibold">تنظیمات اعلانات</CardTitle>
@@ -382,9 +382,9 @@ export default function Settings() {
                   onCheckedChange={(checked) => setNotificationSettings({...notificationSettings, emailNotifications: checked})}
                 />
               </div>
-              
+
               <Separator />
-              
+
               <div className="flex items-center justify-between">
                 <div>
                   <Label htmlFor="success-notifications">اعلان موفقیت انتشار</Label>
@@ -396,9 +396,9 @@ export default function Settings() {
                   onCheckedChange={(checked) => setNotificationSettings({...notificationSettings, postSuccessNotifications: checked})}
                 />
               </div>
-              
+
               <Separator />
-              
+
               <div className="flex items-center justify-between">
                 <div>
                   <Label htmlFor="failure-notifications">اعلان خطا در انتشار</Label>
@@ -410,9 +410,9 @@ export default function Settings() {
                   onCheckedChange={(checked) => setNotificationSettings({...notificationSettings, postFailureNotifications: checked})}
                 />
               </div>
-              
+
               <Separator />
-              
+
               <div className="flex items-center justify-between">
                 <div>
                   <Label htmlFor="weekly-reports">گزارش هفتگی</Label>
@@ -424,9 +424,9 @@ export default function Settings() {
                   onCheckedChange={(checked) => setNotificationSettings({...notificationSettings, weeklyReports: checked})}
                 />
               </div>
-              
+
               <Separator />
-              
+
               <div className="flex items-center justify-between">
                 <div>
                   <Label htmlFor="security-alerts">هشدارهای امنیتی</Label>
@@ -438,7 +438,7 @@ export default function Settings() {
                   onCheckedChange={(checked) => setNotificationSettings({...notificationSettings, securityAlerts: checked})}
                 />
               </div>
-              
+
               <Button onClick={handleSaveNotificationSettings}>
                 <Save className="w-4 h-4 ml-2" />
                 ذخیره تنظیمات اعلانات
@@ -448,7 +448,7 @@ export default function Settings() {
         </TabsContent>
 
         {/* Security Settings */}
-        <TabsContent value="security">
+        <TabsContent value="security" dir="rtl">
           <div className="space-y-6">
             <Card className="professional-card">
               <CardHeader>
@@ -466,9 +466,9 @@ export default function Settings() {
                     onCheckedChange={(checked) => setSecuritySettings({...securitySettings, twoFactorAuth: checked})}
                   />
                 </div>
-                
+
                 <Separator />
-                
+
                 <div className="flex items-center justify-between">
                   <div>
                     <Label htmlFor="login-notifications">اعلان ورود جدید</Label>
@@ -480,9 +480,9 @@ export default function Settings() {
                     onCheckedChange={(checked) => setSecuritySettings({...securitySettings, loginNotifications: checked})}
                   />
                 </div>
-                
+
                 <Separator />
-                
+
                 <div className="space-y-2">
                   <Label>مدت زمان نشست (ساعت)</Label>
                   <Select value={securitySettings.sessionTimeout} onValueChange={(value) => setSecuritySettings({...securitySettings, sessionTimeout: value})}>
@@ -497,7 +497,7 @@ export default function Settings() {
                     </SelectContent>
                   </Select>
                 </div>
-                
+
                 <Button onClick={handleSaveSecuritySettings}>
                   <Save className="w-4 h-4 ml-2" />
                   ذخیره تنظیمات امنیتی
@@ -514,13 +514,13 @@ export default function Settings() {
                 <div className="space-y-4">
                   {recentLogins.map((login) => {
                     const DeviceIcon = getDeviceIcon(login.device)
-                    
+
                     return (
                       <div key={login.id} className="flex items-center gap-4 p-3 rounded-lg bg-muted/30">
                         <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                           <DeviceIcon className="w-5 h-5 text-primary" />
                         </div>
-                        
+
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-1">
                             <p className="font-medium text-foreground">{login.device}</p>
@@ -531,7 +531,7 @@ export default function Settings() {
                           <p className="text-sm text-muted-foreground">{login.location}</p>
                           <p className="text-xs text-muted-foreground">IP: {login.ip} • {login.time}</p>
                         </div>
-                        
+
                         {!login.current && (
                           <Button variant="ghost" size="sm" className="text-destructive">
                             <Trash2 className="w-4 h-4" />

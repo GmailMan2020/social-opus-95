@@ -1,10 +1,10 @@
 import { useState } from "react"
-import { 
-  LayoutDashboard, 
-  Users, 
-  Send, 
-  BarChart3, 
-  Target, 
+import {
+  LayoutDashboard,
+  Users,
+  Send,
+  BarChart3,
+  Target,
   Settings,
   ChevronLeft,
   Instagram,
@@ -46,7 +46,7 @@ export function AppSidebar() {
   const collapsed = state === "collapsed"
 
   return (
-    <Sidebar 
+    <Sidebar
       side="right"
       variant="sidebar"
       collapsible="offcanvas"
@@ -55,7 +55,7 @@ export function AppSidebar() {
         collapsed ? "w-16" : "w-72"
       )}
     >
-      <SidebarContent className="p-4">
+      <SidebarContent className="py-4">
         {/* Logo Section */}
         <div className="mb-8 px-2">
           {!collapsed ? (
@@ -85,14 +85,14 @@ export function AppSidebar() {
               {navigationItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild className="h-12">
-                    <NavLink 
-                      to={item.url} 
+                    <NavLink
+                      to={item.url}
                       end
                       className={({ isActive }) => cn(
                         "flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-200",
                         "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                         "text-sidebar-foreground", // Always show text
-                        isActive 
+                        isActive
                           ? "bg-sidebar-primary shadow-glow"
                           : ""
                       )}
@@ -135,20 +135,20 @@ export function AppSidebar() {
         )}
 
         {/* Collapse Button */}
-        <div className="mt-auto pt-4">
-          <SidebarTrigger className="w-full">
-            <div className={cn(
-              "flex items-center justify-center w-10 h-10 rounded-lg",
-              "bg-sidebar-accent hover:bg-sidebar-primary transition-colors",
-              "hover:text-sidebar-primary-foreground"
-            )}>
-              <ChevronLeft className={cn(
-                "w-4 h-4 transition-transform",
-                collapsed && "rotate-180"
-              )} />
-            </div>
-          </SidebarTrigger>
-        </div>
+        {/*<div className="mt-auto pt-4">*/}
+        {/*  <SidebarTrigger className="w-full">*/}
+        {/*    <div className={cn(*/}
+        {/*      "flex items-center justify-center w-10 h-10 rounded-lg",*/}
+        {/*      "bg-sidebar-accent hover:bg-sidebar-primary transition-colors",*/}
+        {/*      "hover:text-sidebar-primary-foreground"*/}
+        {/*    )}>*/}
+        {/*      <ChevronLeft className={cn(*/}
+        {/*        "w-4 h-4 transition-transform",*/}
+        {/*        collapsed && "rotate-180"*/}
+        {/*      )} />*/}
+        {/*    </div>*/}
+        {/*  </SidebarTrigger>*/}
+        {/*</div>*/}
       </SidebarContent>
     </Sidebar>
   )
