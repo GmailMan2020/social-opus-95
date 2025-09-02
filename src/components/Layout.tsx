@@ -31,10 +31,10 @@ export function Layout() {
           {/* Header */}
           <header className="h-16 border-b border-border bg-card/50 backdrop-blur-sm flex items-center justify-between px-6">
             <div className="flex items-center gap-4">
-              <SidebarTrigger />
+              {/*<SidebarTrigger />*/}
               <h1 className="text-lg font-semibold text-foreground">پلتفرم مدیریت شبکه‌های اجتماعی</h1>
             </div>
-            
+
             <div className="flex items-center gap-3">
               <Button variant="ghost" size="icon" onClick={toggleTheme}>
                 {theme === "dark" ? (
@@ -43,26 +43,28 @@ export function Layout() {
                   <Moon className="w-5 h-5" />
                 )}
               </Button>
-              
+
               <Button variant="ghost" size="icon" className="relative">
                 <Bell className="w-5 h-5" />
                 <span className="absolute -top-1 -right-1 w-3 h-3 bg-destructive rounded-full text-xs flex items-center justify-center text-destructive-foreground">
                   3
                 </span>
               </Button>
-              
+
               <Button variant="ghost" size="icon">
                 <User className="w-5 h-5" />
               </Button>
+
+              <SidebarTrigger />
             </div>
           </header>
 
           {/* Main Content */}
-          <main className="flex-1 p-6 pe-0">
+          <main className="flex-1 p-6">
             <Outlet />
           </main>
         </div>
-        
+
         <AppSidebar />
       </div>
     </SidebarProvider>
