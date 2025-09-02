@@ -58,7 +58,7 @@ export function Layout() {
           </header>
 
           {/* Main Content */}
-          <main className="flex-1 p-6">
+          <main className="flex-1 p-6 pe-0">
             <Outlet />
           </main>
         </div>
