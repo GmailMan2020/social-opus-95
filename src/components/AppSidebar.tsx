@@ -93,7 +93,7 @@ export function AppSidebar() {
                         "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
                         "text-sidebar-foreground", // Always show text
                         isActive 
-                          ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-glow" 
+                          ? "bg-sidebar-primary shadow-glow"
                           : ""
                       )}
                     >
