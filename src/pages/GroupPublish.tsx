@@ -1,8 +1,9 @@
 import { useState, useRef } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Upload, FolderOpen, FileText, Image as ImageIcon, Check, X } from "lucide-react";
+import { Upload, FolderOpen, FileText, Image as ImageIcon, Check, X, Users } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Table,
   TableBody,
@@ -23,13 +24,47 @@ interface ImageFile {
   name: string;
 }
 
+interface Account {
+  id: string;
+  name: string;
+  username: string;
+  platform: string;
+  avatar: string;
+}
+
 export default function GroupPublish() {
   const [csvData, setCsvData] = useState<CsvData[]>([]);
   const [imageFiles, setImageFiles] = useState<ImageFile[]>([]);
+  const [selectedAccounts, setSelectedAccounts] = useState<string[]>([]);
   const [isProcessing, setIsProcessing] = useState(false);
   const csvInputRef = useRef<HTMLInputElement>(null);
   const folderInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
+
+  // Mock accounts data
+  const accounts: Account[] = [
+    {
+      id: "1",
+      name: "اکانت اصلی",
+      username: "@main_account",
+      platform: "Instagram",
+      avatar: "/placeholder.svg"
+    },
+    {
+      id: "2", 
+      name: "اکانت کسب و کار",
+      username: "@business_account",
+      platform: "Instagram",
+      avatar: "/placeholder.svg"
+    },
+    {
+      id: "3",
+      name: "اکانت شخصی",
+      username: "@personal_account", 
+      platform: "Instagram",
+      avatar: "/placeholder.svg"
+    }
+  ];
 
   const handleCsvUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -159,12 +194,74 @@ export default function GroupPublish() {
     setImageFiles(prev => prev.filter((_, i) => i !== index));
   };
 
+  const handleAccountSelection = (accountId: string, checked: boolean) => {
+    if (checked) {
+      setSelectedAccounts(prev => [...prev, accountId]);
+    } else {
+      setSelectedAccounts(prev => prev.filter(id => id !== accountId));
+    }
+  };
+
   return (
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-bold text-foreground mb-2">انتشار گروهی</h1>
         <p className="text-muted-foreground">انتشار چندین پست به صورت یکجا در شبکه‌های اجتماعی</p>
       </div>
+
+      {/* Account Selection Card */}
+      <Card className="mb-6">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <Users className="w-5 h-5" />
+            انتخاب اکانت‌ها
+          </CardTitle>
+          <CardDescription>
+            اکانت‌هایی که پست‌ها از طریق آنها منتشر خواهند شد
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {accounts.map((account) => (
+              <div
+                key={account.id}
+                className="flex items-center space-x-3 space-x-reverse p-3 border rounded-lg hover:bg-accent/50 transition-colors"
+              >
+                <Checkbox
+                  id={account.id}
+                  checked={selectedAccounts.includes(account.id)}
+                  onCheckedChange={(checked) => 
+                    handleAccountSelection(account.id, checked as boolean)
+                  }
+                />
+                <img
+                  src={account.avatar}
+                  alt={account.name}
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+                <div className="flex-1 min-w-0">
+                  <label
+                    htmlFor={account.id}
+                    className="text-sm font-medium cursor-pointer"
+                  >
+                    {account.name}
+                  </label>
+                  <p className="text-xs text-muted-foreground truncate">
+                    {account.username} • {account.platform}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+          {selectedAccounts.length > 0 && (
+            <div className="mt-4 p-3 bg-primary/10 rounded-lg">
+              <p className="text-sm text-primary font-medium">
+                {selectedAccounts.length} اکانت انتخاب شده
+              </p>
+            </div>
+          )}
+        </CardContent>
+      </Card>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* CSV Upload Card */}
