@@ -9,7 +9,8 @@ import {
   ChevronLeft,
   Instagram,
   Twitter,
-  MessageCircle
+  MessageCircle,
+  Layers
 } from "lucide-react"
 import { NavLink } from "react-router-dom"
 import {
@@ -30,6 +31,7 @@ const navigationItems = [
   { title: "داشبورد", url: "/", icon: LayoutDashboard },
   { title: "حساب‌ها", url: "/accounts", icon: Users },
   { title: "انتشار", url: "/publish", icon: Send },
+  { title: "انتشار گروهی", url: "/group-publish", icon: Layers },
   { title: "گزارشات", url: "/reports", icon: BarChart3 },
   { title: "ماموریت‌ها", url: "/missions", icon: Target },
   { title: "تنظیمات", url: "/settings", icon: Settings },
