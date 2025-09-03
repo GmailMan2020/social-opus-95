@@ -1,4 +1,6 @@
+@import "src/fonts/vazirmatn/Vazirmatn-font-face.css"
 #root {
+  font-family: Vazirmatn;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
