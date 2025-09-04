@@ -103,20 +103,20 @@ ${prompt}
   };
 
   return (
-    <div className="p-6 space-y-6">
+    <div className="p-6 space-y-6 dir-rtl" dir="rtl">
       {/* Header */}
       <div className="mb-8">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
-            <Brain className="w-6 h-6 text-white" />
-          </div>
+        <div className="flex items-center gap-3 mb-4 flex-row-reverse">
           <div>
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent text-right">
               استودیو هوش مصنوعی
             </h1>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-right">
               ابزارهای پیشرفته هوش مصنوعی برای تولید محتوا
             </p>
+          </div>
+          <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center">
+            <Brain className="w-6 h-6 text-white" />
           </div>
         </div>
       </div>
@@ -129,13 +129,13 @@ ${prompt}
               <div className={`w-12 h-12 bg-gradient-to-r ${feature.gradient} rounded-lg flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300`}>
                 <feature.icon className="w-6 h-6 text-white" />
               </div>
-              <CardTitle className="text-lg">{feature.title}</CardTitle>
-              <CardDescription>{feature.description}</CardDescription>
+              <CardTitle className="text-lg text-right">{feature.title}</CardTitle>
+              <CardDescription className="text-right">{feature.description}</CardDescription>
             </CardHeader>
             <CardContent>
               <Button className="w-full" variant="outline">
-                <Sparkles className="w-4 h-4 mr-2" />
-                شروع کار
+                <span className="ml-2">شروع کار</span>
+                <Sparkles className="w-4 h-4" />
               </Button>
             </CardContent>
           </Card>
@@ -145,11 +145,11 @@ ${prompt}
       {/* Main Workspace */}
       <Card className="border-2">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 flex-row-reverse text-right">
+            <span>فضای کاری هوش مصنوعی</span>
             <Wand2 className="w-5 h-5" />
-            فضای کاری هوش مصنوعی
           </CardTitle>
-          <CardDescription>
+          <CardDescription className="text-right">
             ابزارهای تولید محتوا و تحلیل متن
           </CardDescription>
         </CardHeader>
@@ -164,29 +164,31 @@ ${prompt}
             <TabsContent value="content" className="space-y-4">
               <div className="space-y-4">
                 <div>
-                  <label className="text-sm font-medium mb-2 block">
+                  <label className="text-sm font-medium mb-2 block text-right">
                     موضوع یا دستورالعمل برای تولید محتوا
                   </label>
                   <Textarea
                     placeholder="مثال: یک پست جذاب درباره اهمیت ورزش در زندگی روزانه بنویس..."
                     value={prompt}
                     onChange={(e) => setPrompt(e.target.value)}
-                    className="min-h-[100px]"
+                    className="min-h-[100px] text-right"
+                    dir="rtl"
                   />
                 </div>
                 <Button onClick={handleContentGeneration} className="w-full">
-                  <Sparkles className="w-4 h-4 mr-2" />
-                  تولید محتوا با هوش مصنوعی
+                  <span className="ml-2">تولید محتوا با هوش مصنوعی</span>
+                  <Sparkles className="w-4 h-4" />
                 </Button>
                 {generatedText && (
                   <div className="mt-4">
-                    <label className="text-sm font-medium mb-2 block">
+                    <label className="text-sm font-medium mb-2 block text-right">
                       محتوای تولید شده
                     </label>
                     <Textarea
                       value={generatedText}
                       onChange={(e) => setGeneratedText(e.target.value)}
-                      className="min-h-[200px]"
+                      className="min-h-[200px] text-right"
+                      dir="rtl"
                     />
                   </div>
                 )}
@@ -196,23 +198,24 @@ ${prompt}
             <TabsContent value="hashtags" className="space-y-4">
               <div className="space-y-4">
                 <div>
-                  <label className="text-sm font-medium mb-2 block">
+                  <label className="text-sm font-medium mb-2 block text-right">
                     متن یا موضوع برای تولید هشتگ
                   </label>
                   <Textarea
                     placeholder="متن خود را وارد کنید تا هشتگ‌های مناسب پیشنهاد دهیم..."
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
-                    className="min-h-[100px]"
+                    className="min-h-[100px] text-right"
+                    dir="rtl"
                   />
                 </div>
                 <Button onClick={handleHashtagGeneration} className="w-full">
-                  <Hash className="w-4 h-4 mr-2" />
-                  تولید هشتگ‌ها
+                  <span className="ml-2">تولید هشتگ‌ها</span>
+                  <Hash className="w-4 h-4" />
                 </Button>
                 {hashtags.length > 0 && (
                   <div className="mt-4">
-                    <label className="text-sm font-medium mb-2 block">
+                    <label className="text-sm font-medium mb-2 block text-right">
                       هشتگ‌های پیشنهادی
                     </label>
                     <div className="flex flex-wrap gap-2">
@@ -230,30 +233,31 @@ ${prompt}
             <TabsContent value="analysis" className="space-y-4">
               <div className="space-y-4">
                 <div>
-                  <label className="text-sm font-medium mb-2 block">
+                  <label className="text-sm font-medium mb-2 block text-right">
                     متن برای تحلیل
                   </label>
                   <Textarea
                     placeholder="متن خود را اینجا وارد کنید تا تحلیل کنیم..."
-                    className="min-h-[150px]"
+                    className="min-h-[150px] text-right"
+                    dir="rtl"
                   />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <Button variant="outline">
-                    <MessageSquare className="w-4 h-4 mr-2" />
-                    تحلیل احساسات
+                    <span className="ml-2">تحلیل احساسات</span>
+                    <MessageSquare className="w-4 h-4" />
                   </Button>
                   <Button variant="outline">
-                    <Zap className="w-4 h-4 mr-2" />
-                    بهبود متن
+                    <span className="ml-2">بهبود متن</span>
+                    <Zap className="w-4 h-4" />
                   </Button>
                   <Button variant="outline">
-                    <FileText className="w-4 h-4 mr-2" />
-                    خلاصه‌سازی
+                    <span className="ml-2">خلاصه‌سازی</span>
+                    <FileText className="w-4 h-4" />
                   </Button>
                   <Button variant="outline">
-                    <Search className="w-4 h-4 mr-2" />
-                    تشخیص کلمات کلیدی
+                    <span className="ml-2">تشخیص کلمات کلیدی</span>
+                    <Search className="w-4 h-4" />
                   </Button>
                 </div>
               </div>
