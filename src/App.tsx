@@ -8,6 +8,7 @@ import Dashboard from "./pages/Dashboard";
 import Accounts from "./pages/Accounts";
 import Publish from "./pages/Publish";
 import GroupPublish from "./pages/GroupPublish";
+import AIStudio from "./pages/AIStudio";
 import Reports from "./pages/Reports";
 import Missions from "./pages/Missions";
 import Settings from "./pages/Settings";
@@ -29,6 +30,7 @@ const App = () => (
             <Route path="accounts" element={<Accounts />} />
             <Route path="publish" element={<Publish />} />
             <Route path="group-publish" element={<GroupPublish />} />
+            <Route path="ai-studio" element={<AIStudio />} />
             <Route path="reports" element={<Reports />} />
             <Route path="missions" element={<Missions />} />
             <Route path="settings" element={<Settings />} />

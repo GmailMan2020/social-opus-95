@@ -10,7 +10,8 @@ import {
   Instagram,
   Twitter,
   MessageCircle,
-  Layers
+  Layers,
+  Brain
 } from "lucide-react"
 import { NavLink } from "react-router-dom"
 import {
@@ -32,6 +33,7 @@ const navigationItems = [
   { title: "حساب‌ها", url: "/accounts", icon: Users },
   { title: "انتشار", url: "/publish", icon: Send },
   { title: "انتشار گروهی", url: "/group-publish", icon: Layers },
+  { title: "استودیو هوش مصنوعی", url: "/ai-studio", icon: Brain },
   { title: "گزارشات", url: "/reports", icon: BarChart3 },
   { title: "ماموریت‌ها", url: "/missions", icon: Target },
   { title: "تنظیمات", url: "/settings", icon: Settings },
