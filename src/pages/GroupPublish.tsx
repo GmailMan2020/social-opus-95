@@ -221,6 +221,29 @@ export default function GroupPublish() {
           </CardDescription>
         </CardHeader>
         <CardContent>
+          {/* Select All Option */}
+          <div className="mb-4 p-3 border-b">
+            <div className="flex items-center space-x-3 space-x-reverse">
+              <Checkbox
+                id="select-all"
+                checked={selectedAccounts.length === accounts.length}
+                onCheckedChange={(checked) => {
+                  if (checked) {
+                    setSelectedAccounts(accounts.map(account => account.id));
+                  } else {
+                    setSelectedAccounts([]);
+                  }
+                }}
+              />
+              <label
+                htmlFor="select-all"
+                className="text-sm font-medium cursor-pointer"
+              >
+                انتخاب همه اکانت‌ها
+              </label>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {accounts.map((account) => (
               <div
