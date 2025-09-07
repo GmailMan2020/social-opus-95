@@ -34,6 +34,7 @@ const navigationItems = [
   { title: "انتشار", url: "/publish", icon: Send },
   { title: "انتشار گروهی", url: "/group-publish", icon: Layers },
   { title: "استودیو هوش مصنوعی", url: "/ai-studio", icon: Brain },
+  { title: "تحلیل پیشرفته", url: "/advanced-analytics", icon: BarChart3 },
   { title: "گزارشات", url: "/reports", icon: BarChart3 },
   { title: "ماموریت‌ها", url: "/missions", icon: Target },
   { title: "تنظیمات", url: "/settings", icon: Settings },
